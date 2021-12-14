@@ -13,49 +13,32 @@ class ProductVC : UIViewController {
     
     @IBOutlet var productListTableView: UITableView!
     
-    var imageDetail = [product]()
-    
+    var imageDetail = [Product]()
+    let service = ["Machining Lathe","Machining Milling","Welding","hydraulic service","CNC"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        ProductApi.getImage { product in
-            product.productImage
-            product.productName
-            
-        }
- 
+        productListTableView.delegate = self
+        productListTableView.dataSource = self
     }
 
 }
-
-
-
 extension ProductVC : UITableViewDelegate, UITableViewDataSource{
     
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        
+        service.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? ProductListCellTableViewCell
+        cell?.imageCell.image = UIImage(named: service[indexPath.row])
+        cell?.labelCell.text = service[indexPath.row]
         
-        cell?.imageCell
-        return
         
+//        cell?.cellView.layer.cornerRadius = cell?.cellView.frame.height
+
+        return cell ?? UITableViewCell()
     }
     
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }

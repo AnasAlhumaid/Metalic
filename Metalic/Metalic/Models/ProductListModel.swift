@@ -8,43 +8,37 @@
 import Foundation
 import UIKit
 
+//
+//struct ProductDetail {
+//
+//    var productName :[String]
+//    var productPrice : [Int]
+//    var productImage : [String]
+//}
+//
 
-struct ProductDetail {
-    
-    var productName :[String]
-    var productPrice : [Int]
-    var productImage : [String]
-}
-
-
-class product {
+class Product {
     var productImage : String?
     var productName : String?
-    var helical:String?
-
 }
 
-extension product {
+extension Product {
     
-    static func getImage(dect:[String:Any]) -> product {
-        let products = product()
-        products.productImage = dect ["productImage"] as? String
-        products.productName = dect ["productName"] as? String
+    static func getProduct(dect:[String:Any]) -> Product {
+        let products = Product()
+        products.productImage = dect["productImage"] as? String
+        products.productName = dect["productName"] as? String
         
         
         return products
     }
-    static func creatImage(productImage : String, productName : String ) -> [String:Any]{
-        let newProduct =
-        ["productName": productName,
-        "productImage": productImage] as [String:Any]
+    static func creatProduct(productImage : String, productName : String ) -> [String:Any] {
+        
+        let newProduct = ["productName": productName, "productImage": productImage] as [String:Any]
         return newProduct
         
+    }
     
     
-    
-}
-
-
 }
 

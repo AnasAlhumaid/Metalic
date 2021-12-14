@@ -8,36 +8,75 @@
 import Foundation
 import FirebaseAuth
 import FirebaseFirestore
-
+import FirebaseStorage
+import UIKit
 
 class ProductApi {
     
     
-    static func getImage(completion: @escaping(product) -> Void){
+    static func AddProduct(productImage:String,productName:String){
         
-        let db = Firestore.firestore()
-        let refProduct = db.collection("Image")
+        let refProduct = Firestore.firestore().collection("Product")
         
-        refProduct.getDocuments { documants, erorr in
-            
-            guard let decumants = documants?.documents else {return}
-            for documant in decumants {
-                refProduct.document(documant.documentID).getDocument { documant, error in
-                    if let doc = documant, doc.exists{
-                        let products = product.getImage(dect: doc.data()!)
-                        completion(products)
-                    }
+        refProduct.document().setData(Product.creatProduct(productImage: productImage, productName: productName))
+        
+        //        getDocuments { documants, erorr in
+        //
+        //            guard let decumants = documants?.documents else {return}
+        //            for documant in decumants {
+        //                refProduct.document(documant.documentID).getDocument { documant, error in
+        //                    if let doc = documant, doc.exists{
+        //                        let products = Product.getImage(dect: doc.data()!)
+        //                        completion(products)
+        //                    }
+        //                }
+        //
+        //            }
+        //        }
+    }
+    
+    static func getProducts(com:@escaping (Product) -> Void){
+        
+        let refProduct = Firestore.firestore().collection("Product")
+        
+        refProduct.getDocuments { documents, error in
+            guard let documents = documents?.documents else {return}
+            for document in documents {
+                refProduct.document(document.documentID).getDocument { doc, error in
+                    let product = Product.getProduct(dect: document.data())
+                    com(product)
                 }
-                
             }
         }
         
-        
-        
-        
-        
-        
-        
     }
     
+    static func uploadImageToFirebase(screenShot:UIImage ,completion: @escaping (Bool,String?) -> Void){
+        
+        
+        let storageReference = Storage.storage().reference()
+        let profileImageRef = storageReference.child("Products").child(Auth.auth().currentUser?.uid ?? "").child("\(String(Int(arc4random()))).jpg")
+        
+        let uploadMetaData = StorageMetadata()
+        uploadMetaData.contentType = "image/jpeg"
+        
+        
+        guard let data = screenShot.pngData() else {return}
+        
+        profileImageRef.putData(data, metadata: uploadMetaData) { (uploadedImageMeta, error) in
+            
+            if error != nil {
+                print("Error took place \(String(describing: error?.localizedDescription))")
+                completion(false,nil)
+            } else {
+                profileImageRef.downloadURL(completion: { (url, error) in
+                    // save url string
+                    let urlDownload = url?.absoluteString
+                    completion(true,urlDownload)
+                })
+                print("Meta data of uploaded image \(String(describing: uploadedImageMeta))")
+            }
+        }
+        
+    }
 }

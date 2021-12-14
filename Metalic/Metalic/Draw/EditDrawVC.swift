@@ -1,35 +1,31 @@
 //
-//  Draw.swift
+//  EditDrawVC.swift
 //  Metalic
 //
-//  Created by Anas Hamad on 08/05/1443 AH.
+//  Created by Anas Hamad on 10/05/1443 AH.
 //
-
 import Foundation
 import UIKit
 import PencilKit
-import FirebaseStorage
-import FirebaseAuth
 
-class DrawVC : UIViewController, PKCanvasViewDelegate, PKToolPickerObserver {
-    
-    @IBOutlet var canvasView: PKCanvasView!
+class EditDrawVC: UIViewController, PKCanvasViewDelegate, PKToolPickerObserver {
+
+    @IBOutlet var Save: UIBarButtonItem!
+    @IBOutlet var canvasView : PKCanvasView!
     @IBOutlet var imageView: UIImageView!
     
-    
+    var product = Product()
     var drawing = PKDrawing()
     var toolPicker: PKToolPicker!
     let picker = UIImagePickerController()
     var imgForMarkup: UIImage?
     var activityView: UIActivityIndicatorView?
     
+    var selectedImage : String?
+    var setSelectedImage : String?
     
     fileprivate func delegateCanv() {
-        
-        
-        
-
-        
+ 
         canvasView.delegate = self
         
         canvasView.drawing = drawing
@@ -77,7 +73,19 @@ class DrawVC : UIViewController, PKCanvasViewDelegate, PKToolPickerObserver {
      
         showActivityIndicatory()
         delegateCanv()
-    
+        
+        setSelectedImage = selectedImage
+        guard let url = URL(string: setSelectedImage ?? "") else {return }
+        if let data = try? Data(contentsOf: url){
+            imageView.image = UIImage(data: data)
+            canvasView = PKCanvasView.init(frame: imageView.frame)
+            canvasView.isOpaque = false
+            delegateCanv()
+            view.addSubview(canvasView)
+            
+        
+            
+        }
         
         
     }
@@ -115,9 +123,7 @@ class DrawVC : UIViewController, PKCanvasViewDelegate, PKToolPickerObserver {
         return CGRect.init(origin: origin, size: size)
     }
     
-    @IBAction func addbotton(_ sender: Any) {
-        showAlert()
-    }
+
     @IBAction func ShareImage(_ sender: Any) {
         let screenShot = self.view.takeScreenshot()
         saveImage(screenShot: screenShot)
@@ -145,81 +151,9 @@ class DrawVC : UIViewController, PKCanvasViewDelegate, PKToolPickerObserver {
 }
 
 
-extension UIView {
-    
-    func takeScreenshot() -> UIImage {
-        
-        let scale = UIScreen.main.scale
-        let bonds = self.bounds
-        
-        UIGraphicsBeginImageContextWithOptions(bonds.size, false, scale)
-        
-        if let _ = UIGraphicsGetCurrentContext() {
-            
-            self.drawHierarchy(in: bonds, afterScreenUpdates: true)
-            
-            let screenshot = UIGraphicsGetImageFromCurrentImageContext()!
-            
-            UIGraphicsEndImageContext()
-            
-            return screenshot
-        }
-        
-        return UIImage()
-    }
-    
-}
 
 
-extension DrawVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
-    private func showAlert() {
-        
-        let alert = UIAlertController(title: "Image Selection", message: "From where you want to pick this image?", preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: {(action: UIAlertAction) in
-            self.getImage(fromSourceType: .camera)
-        }))
-        alert.addAction(UIAlertAction(title: "Photo Album", style: .default, handler: {(action: UIAlertAction) in
-            self.getImage(fromSourceType: .photoLibrary)
-        }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: nil))
-        self.present(alert, animated: true, completion: nil)
-    }
-    
-    
-    
-    private func getImage(fromSourceType sourceType: UIImagePickerController.SourceType) {
-        
-        if UIImagePickerController.isSourceTypeAvailable(sourceType) {
-            
-            let imagePickerController = UIImagePickerController()
-            imagePickerController.delegate = self
-            imagePickerController.sourceType = sourceType
-            self.present(imagePickerController, animated: true, completion: nil)
-        }
-    }
-    
-    //MARK:- UIImagePickerViewDelegate.
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        
-        self.dismiss(animated: true) { [weak self] in
-            
-            guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
-            
-            self?.imageView.image = image
-            self?.imgForMarkup = image
-            self?.canvasView = PKCanvasView.init(frame: self!.imageView.frame)
-            self?.canvasView.isOpaque = false
-            self?.delegateCanv()
-            self?.view.addSubview(self!.canvasView)
-        }
-        
-    }
-    
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        picker.dismiss(animated: true, completion: nil)
-    }
-    
-}
+
+
 
 

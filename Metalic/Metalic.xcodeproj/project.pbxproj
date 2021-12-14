@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D84EA5C5276723BE0038C580 /* FormulaBottunVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84EA5C4276723BE0038C580 /* FormulaBottunVC.swift */; };
+		D84EA5C72767266B0038C580 /* CalculationsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84EA5C62767266B0038C580 /* CalculationsModel.swift */; };
+		D84EA5C92767700A0038C580 /* Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84EA5C82767700A0038C580 /* Ex.swift */; };
+		D84EA5CB27677D4C0038C580 /* ProductDrawingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84EA5CA27677D4C0038C580 /* ProductDrawingCell.swift */; };
+		D84EA5CD27677EB60038C580 /* SheetsDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84EA5CC27677EB60038C580 /* SheetsDraw.swift */; };
+		D84EA5CF27687FE60038C580 /* EditDrawVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84EA5CE27687FE60038C580 /* EditDrawVC.swift */; };
+		D84EA5D12768A7E10038C580 /* CartTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84EA5D02768A7E10038C580 /* CartTableCell.swift */; };
 		D8DF3D882761F570007F5EA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DF3D872761F570007F5EA4 /* AppDelegate.swift */; };
 		D8DF3D8A2761F570007F5EA4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DF3D892761F570007F5EA4 /* SceneDelegate.swift */; };
 		D8DF3D8C2761F570007F5EA4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DF3D8B2761F570007F5EA4 /* ViewController.swift */; };
@@ -16,8 +23,8 @@
 		D8DF3D972761F572007F5EA4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8DF3D952761F572007F5EA4 /* LaunchScreen.storyboard */; };
 		D8DF3D9F2765CB59007F5EA4 /* LogIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DF3D9E2765CB59007F5EA4 /* LogIn.swift */; };
 		D8DF3DA22765CB82007F5EA4 /* Registorations.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DF3DA12765CB82007F5EA4 /* Registorations.swift */; };
-		D8DF3DA52765CC55007F5EA4 /* MOD.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DF3DA42765CC55007F5EA4 /* MOD.swift */; };
-		D8DF3DA72765CC68007F5EA4 /* AnglePressure.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DF3DA62765CC68007F5EA4 /* AnglePressure.swift */; };
+		D8DF3DA52765CC55007F5EA4 /* ModVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DF3DA42765CC55007F5EA4 /* ModVC.swift */; };
+		D8DF3DA72765CC68007F5EA4 /* SpeedGearVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DF3DA62765CC68007F5EA4 /* SpeedGearVC.swift */; };
 		D8DF3DAA2765CC99007F5EA4 /* CatrVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DF3DA92765CC99007F5EA4 /* CatrVC.swift */; };
 		D8DF3DAD2765CCCD007F5EA4 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DF3DAC2765CCCD007F5EA4 /* ProfileVC.swift */; };
 		D8DF3DB02765CCFB007F5EA4 /* ProductVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DF3DAF2765CCFB007F5EA4 /* ProductVC.swift */; };
@@ -35,6 +42,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D84EA5C4276723BE0038C580 /* FormulaBottunVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormulaBottunVC.swift; sourceTree = "<group>"; };
+		D84EA5C62767266B0038C580 /* CalculationsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationsModel.swift; sourceTree = "<group>"; };
+		D84EA5C82767700A0038C580 /* Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ex.swift; sourceTree = "<group>"; };
+		D84EA5CA27677D4C0038C580 /* ProductDrawingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDrawingCell.swift; sourceTree = "<group>"; };
+		D84EA5CC27677EB60038C580 /* SheetsDraw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetsDraw.swift; sourceTree = "<group>"; };
+		D84EA5CE27687FE60038C580 /* EditDrawVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDrawVC.swift; sourceTree = "<group>"; };
+		D84EA5D02768A7E10038C580 /* CartTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableCell.swift; sourceTree = "<group>"; };
 		D8DF3D842761F570007F5EA4 /* Metalic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Metalic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8DF3D872761F570007F5EA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8DF3D892761F570007F5EA4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -46,8 +60,8 @@
 		D8DF3D982761F572007F5EA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D8DF3D9E2765CB59007F5EA4 /* LogIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogIn.swift; sourceTree = "<group>"; };
 		D8DF3DA12765CB82007F5EA4 /* Registorations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Registorations.swift; sourceTree = "<group>"; };
-		D8DF3DA42765CC55007F5EA4 /* MOD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MOD.swift; sourceTree = "<group>"; };
-		D8DF3DA62765CC68007F5EA4 /* AnglePressure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnglePressure.swift; sourceTree = "<group>"; };
+		D8DF3DA42765CC55007F5EA4 /* ModVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModVC.swift; sourceTree = "<group>"; };
+		D8DF3DA62765CC68007F5EA4 /* SpeedGearVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedGearVC.swift; sourceTree = "<group>"; };
 		D8DF3DA92765CC99007F5EA4 /* CatrVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatrVC.swift; sourceTree = "<group>"; };
 		D8DF3DAC2765CCCD007F5EA4 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		D8DF3DAF2765CCFB007F5EA4 /* ProductVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductVC.swift; sourceTree = "<group>"; };
@@ -111,6 +125,7 @@
 				D8DF3D982761F572007F5EA4 /* Info.plist */,
 				D8DF3D902761F570007F5EA4 /* Metalic.xcdatamodeld */,
 				D8DF3DBD2765D1CA007F5EA4 /* GoogleService-Info.plist */,
+				D84EA5C82767700A0038C580 /* Ex.swift */,
 			);
 			path = Metalic;
 			sourceTree = "<group>";
@@ -127,8 +142,9 @@
 		D8DF3DA32765CB8B007F5EA4 /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
-				D8DF3DA42765CC55007F5EA4 /* MOD.swift */,
-				D8DF3DA62765CC68007F5EA4 /* AnglePressure.swift */,
+				D8DF3DA42765CC55007F5EA4 /* ModVC.swift */,
+				D8DF3DA62765CC68007F5EA4 /* SpeedGearVC.swift */,
+				D84EA5C4276723BE0038C580 /* FormulaBottunVC.swift */,
 			);
 			path = Calculator;
 			sourceTree = "<group>";
@@ -161,6 +177,8 @@
 			isa = PBXGroup;
 			children = (
 				D8DF3DB12765CD27007F5EA4 /* DrawVC.swift */,
+				D84EA5CC27677EB60038C580 /* SheetsDraw.swift */,
+				D84EA5CE27687FE60038C580 /* EditDrawVC.swift */,
 			);
 			path = Draw;
 			sourceTree = "<group>";
@@ -169,6 +187,8 @@
 			isa = PBXGroup;
 			children = (
 				D8DF3DC02765E3BC007F5EA4 /* ProductListCellTableViewCell.swift */,
+				D84EA5CA27677D4C0038C580 /* ProductDrawingCell.swift */,
+				D84EA5D02768A7E10038C580 /* CartTableCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -180,6 +200,7 @@
 				D8DF3DC52765EE08007F5EA4 /* UsersData.swift */,
 				D8DF3DC7276603CC007F5EA4 /* UsersApi.swift */,
 				D8DF3DC927661AE7007F5EA4 /* ProductListApi.swift */,
+				D84EA5C62767266B0038C580 /* CalculationsModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -266,19 +287,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8DF3DB02765CCFB007F5EA4 /* ProductVC.swift in Sources */,
+				D84EA5CD27677EB60038C580 /* SheetsDraw.swift in Sources */,
 				D8DF3DC42765EB99007F5EA4 /* ProductListModel.swift in Sources */,
 				D8DF3DAD2765CCCD007F5EA4 /* ProfileVC.swift in Sources */,
+				D84EA5CB27677D4C0038C580 /* ProductDrawingCell.swift in Sources */,
 				D8DF3DA22765CB82007F5EA4 /* Registorations.swift in Sources */,
 				D8DF3DB22765CD27007F5EA4 /* DrawVC.swift in Sources */,
 				D8DF3DC8276603CC007F5EA4 /* UsersApi.swift in Sources */,
+				D84EA5D12768A7E10038C580 /* CartTableCell.swift in Sources */,
 				D8DF3D9F2765CB59007F5EA4 /* LogIn.swift in Sources */,
 				D8DF3D8C2761F570007F5EA4 /* ViewController.swift in Sources */,
+				D84EA5C92767700A0038C580 /* Ex.swift in Sources */,
 				D8DF3D882761F570007F5EA4 /* AppDelegate.swift in Sources */,
+				D84EA5CF27687FE60038C580 /* EditDrawVC.swift in Sources */,
+				D84EA5C5276723BE0038C580 /* FormulaBottunVC.swift in Sources */,
 				D8DF3D8A2761F570007F5EA4 /* SceneDelegate.swift in Sources */,
-				D8DF3DA52765CC55007F5EA4 /* MOD.swift in Sources */,
+				D8DF3DA52765CC55007F5EA4 /* ModVC.swift in Sources */,
 				D8DF3DAA2765CC99007F5EA4 /* CatrVC.swift in Sources */,
 				D8DF3DC12765E3BC007F5EA4 /* ProductListCellTableViewCell.swift in Sources */,
-				D8DF3DA72765CC68007F5EA4 /* AnglePressure.swift in Sources */,
+				D84EA5C72767266B0038C580 /* CalculationsModel.swift in Sources */,
+				D8DF3DA72765CC68007F5EA4 /* SpeedGearVC.swift in Sources */,
 				D8DF3DC62765EE08007F5EA4 /* UsersData.swift in Sources */,
 				D8DF3D922761F570007F5EA4 /* Metalic.xcdatamodeld in Sources */,
 				D8DF3DCA27661AE7007F5EA4 /* ProductListApi.swift in Sources */,

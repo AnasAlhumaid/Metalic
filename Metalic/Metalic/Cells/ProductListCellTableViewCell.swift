@@ -12,6 +12,11 @@ class ProductListCellTableViewCell: UITableViewCell {
     @IBOutlet var cellView: UIView!
     @IBOutlet var imageCell: UIImageView!
     @IBOutlet var labelCell: UILabel!
+    
+    
+    let service = ["Machining Lathe","Machining Milling","Welding","hydraulic service","CNC"]
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -23,28 +28,7 @@ class ProductListCellTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func downloadImage(){
-        ProductApi.getImage { product in
-            let urlString = product.productImage
-            guard let url = URL(string: urlString!) else {return}
-            let data = URLSession.shared.dataTask(with: url) { data, _, error in
-                guard let data = data, error == nil else {
-                    return
-                }
-
-                DispatchQueue.main.async {
-                    let image = UIImage(data: data)
-                    self.imageCell.image = image
-                    
-                }
-                
-            }
-        }
-        
-        
-        
-        
-        
-    }
-
+    
 }
+
+

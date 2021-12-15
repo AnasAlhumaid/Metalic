@@ -12,15 +12,14 @@ class SheetsDraw: UIViewController {
     @IBOutlet var SheetCollection: UICollectionView!
     var product = [Product]()
     var sheets : Product?
+    var orders = [Orders]()
+    var activityView: UIActivityIndicatorView?
     
     var selectedImage : String?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-
         
         SheetCollection.dataSource = self
         SheetCollection.delegate = self
@@ -54,6 +53,7 @@ extension SheetsDraw : UICollectionViewDelegate,UICollectionViewDelegateFlowLayo
         guard let url = URL(string: arrayOfSheet) else {return UICollectionViewCell()}
         if let data = try? Data(contentsOf: url){
             cell.SheetImage.image = UIImage(data: data)
+            cell.nameLabe.text = product[indexPath.row].productName
             
         }
         
@@ -69,7 +69,7 @@ extension SheetsDraw : UICollectionViewDelegate,UICollectionViewDelegateFlowLayo
         let alert = UIAlertController(title: "Choose", message: "", preferredStyle: .actionSheet)
         
         
-        let drawing = UIAlertAction(title:"New", style: .default) { UIAlertAction in
+        let drawing = UIAlertAction(title:"New Project", style: .default) { UIAlertAction in
             self.performSegue(withIdentifier: "NewDraw", sender: nil)
             
         }
@@ -80,12 +80,21 @@ extension SheetsDraw : UICollectionViewDelegate,UICollectionViewDelegateFlowLayo
                 self.performSegue(withIdentifier: "EditDraw", sender: nil)
             }
         
-        let addToCart = UIAlertAction(title: "Add to Cart ", style: .default) { UIAlertAction in
-            <#code#>
+        let cancel = UIAlertAction(title: "cancel", style: .cancel, handler: nil)
+        
+        let addToCart = UIAlertAction(title: "Add to Cart ", style: .default) { [self] UIAlertAction in
+            Utils.start(view: self.view, activityIndicator: self.activityView!, isUserInteractionEnabled: false)
+            
+            let newProduct = product[indexPath.row].productImage
+            let newname = product[indexPath.row].productName
+            orders?.append(product)
         }
             
             alert.addAction(drawing)
             alert.addAction(addImage)
+            alert.addAction(cancel)
+            alert.addAction(addToCart)
+        
             present(alert, animated: true, completion: nil)
         
         

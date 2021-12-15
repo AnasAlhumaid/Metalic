@@ -125,15 +125,14 @@ class EditDrawVC: UIViewController, PKCanvasViewDelegate, PKToolPickerObserver {
     
 
     @IBAction func ShareImage(_ sender: Any) {
-        let screenShot = self.view.takeScreenshot()
-        saveImage(screenShot: screenShot)
+     desplayAlert()
     }
     
-    func saveImage(screenShot : UIImage){
+    func saveImage(screenShot : UIImage,nameText:String){
         
         Utils.start(view: self.view,activityIndicator: self.activityView!, isUserInteractionEnabled: false)
         
-        ProductApi.uploadImageToFirebase(screenShot: screenShot) { check, urlDownload in
+        ProductApi.uploadImageToFirebase(screenShot: screenShot, nameText: nameText) { check, urlDownload in
             
             Utils.stop(view: self.view, activityIndicator: self.activityView!)
             ProductApi.AddProduct(productImage: urlDownload ?? "", productName: "Test")
@@ -147,6 +146,27 @@ class EditDrawVC: UIViewController, PKCanvasViewDelegate, PKToolPickerObserver {
 //
 //            self.present(screeSheet, animated: true, completion: nil)
 //        }
+    }
+    
+    func desplayAlert(){
+        var textFieldName = UITextField()
+        let alert = UIAlertController(title: "Name of project", message: "add Name", preferredStyle: .alert)
+        let ok = UIAlertAction(title: "Add To my project", style: .default){ action in
+            
+            let screenShot = self.view.takeScreenshot()
+            self.saveImage(screenShot: screenShot, nameText: textFieldName.text ?? "")
+            
+        }
+        
+        alert.addTextField { field in
+            field.placeholder = "Name"
+            textFieldName = field
+        }
+        alert.addAction(ok)
+        present(alert, animated: true )
+        
+        
+        
     }
 }
 

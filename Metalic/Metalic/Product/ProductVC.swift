@@ -34,11 +34,23 @@ extension ProductVC : UITableViewDelegate, UITableViewDataSource{
         cell?.imageCell.image = UIImage(named: service[indexPath.row])
         cell?.labelCell.text = service[indexPath.row]
         
-        
-//        cell?.cellView.layer.cornerRadius = cell?.cellView.frame.height
+        cell?.cellView.setRounded()
+        cell?.imageCell.setRoundedImg()
 
         return cell ?? UITableViewCell()
     }
     
 
+}
+extension UIImageView {
+    func setRoundedImg() {
+        layer.cornerRadius = bounds.height/2
+        layer.masksToBounds = true
+    }
+}
+extension UIView {
+    func setRounded() {
+        layer.cornerRadius = bounds.height/2
+        layer.masksToBounds = true
+    }
 }

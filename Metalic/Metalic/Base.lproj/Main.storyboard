@@ -583,10 +583,11 @@
                                                     <rect key="frame" x="8" y="8" width="368.5" height="99"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iJ9-k3-LV7">
-                                                            <rect key="frame" x="8" y="11" width="90" height="77"/>
+                                                            <rect key="frame" x="8" y="8" width="83" height="83"/>
+                                                            <gestureRecognizers/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="77" id="1Lf-od-0NU"/>
-                                                                <constraint firstAttribute="width" constant="90" id="C2X-2U-ZXB"/>
+                                                                <constraint firstAttribute="height" constant="83" id="1Lf-od-0NU"/>
+                                                                <constraint firstAttribute="width" constant="83" id="C2X-2U-ZXB"/>
                                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="77" id="okP-Db-IR9"/>
                                                             </constraints>
                                                         </imageView>
@@ -604,11 +605,11 @@
                                                     <constraints>
                                                         <constraint firstItem="ggE-Am-6l8" firstAttribute="top" secondItem="fji-7V-mY1" secondAttribute="top" constant="11" id="DsA-XN-he7"/>
                                                         <constraint firstAttribute="trailing" secondItem="ggE-Am-6l8" secondAttribute="trailing" constant="8" id="ETm-eA-yMo"/>
-                                                        <constraint firstItem="iJ9-k3-LV7" firstAttribute="top" secondItem="fji-7V-mY1" secondAttribute="top" constant="11" id="SPG-P7-PRw"/>
+                                                        <constraint firstItem="iJ9-k3-LV7" firstAttribute="top" secondItem="fji-7V-mY1" secondAttribute="top" constant="8" id="SPG-P7-PRw"/>
                                                         <constraint firstAttribute="bottom" secondItem="ggE-Am-6l8" secondAttribute="bottom" constant="11" id="W2C-wl-qx5"/>
-                                                        <constraint firstAttribute="bottom" secondItem="iJ9-k3-LV7" secondAttribute="bottom" constant="11" id="jrf-nJ-7F2"/>
+                                                        <constraint firstAttribute="bottom" secondItem="iJ9-k3-LV7" secondAttribute="bottom" constant="8" id="jrf-nJ-7F2"/>
                                                         <constraint firstItem="iJ9-k3-LV7" firstAttribute="leading" secondItem="fji-7V-mY1" secondAttribute="leading" constant="8" id="xv2-gb-eEa"/>
-                                                        <constraint firstItem="ggE-Am-6l8" firstAttribute="leading" secondItem="iJ9-k3-LV7" secondAttribute="trailing" constant="8" id="yeQ-8j-KfU"/>
+                                                        <constraint firstItem="ggE-Am-6l8" firstAttribute="leading" secondItem="iJ9-k3-LV7" secondAttribute="trailing" constant="15" id="yeQ-8j-KfU"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -720,7 +721,7 @@
                         <segue destination="Bzb-cn-OEX" kind="relationship" relationship="viewControllers" id="rjp-Pg-qae"/>
                         <segue destination="DLy-Gp-3wn" kind="relationship" relationship="viewControllers" id="KYZ-DZ-5NF"/>
                         <segue destination="RwT-my-veT" kind="relationship" relationship="viewControllers" id="7Vc-f1-Gdi"/>
-                        <segue destination="1Yt-we-26n" kind="relationship" relationship="viewControllers" id="zHa-up-2dT"/>
+                        <segue destination="D3r-LR-FQh" kind="relationship" relationship="viewControllers" id="ZYk-R0-92K"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KXX-2w-d1W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -929,7 +930,7 @@
             </objects>
             <point key="canvasLocation" x="5498.5507246376819" y="-1059.375"/>
         </scene>
-        <!--CartVC-->
+        <!--Cart-->
         <scene sceneID="kUd-lQ-L7a">
             <objects>
                 <viewController id="D3r-LR-FQh" customClass="CartVC" customModule="Metalic" customModuleProvider="target" sceneMemberID="viewController">
@@ -938,10 +939,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="llf-ft-SvH">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="720"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="104" id="UGH-hf-m4P" customClass="CartTableCell" customModule="Metalic" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Order" rowHeight="104" id="UGH-hf-m4P" customClass="CartTableCell" customModule="Metalic" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="104"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UGH-hf-m4P" id="HAg-84-VMz">
@@ -1004,15 +1005,19 @@
                             <constraint firstItem="llf-ft-SvH" firstAttribute="trailing" secondItem="Je8-dl-fdH" secondAttribute="trailing" id="ty4-My-aTa"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Cart" image="cart.fill" catalog="system" id="QRz-Oe-UDL"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="CTK-RE-6fH">
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="adL-M5-qvq"/>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="cartTableView" destination="llf-ft-SvH" id="ARS-9t-zuL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l0p-JN-Ihx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2681.1594202898555" y="1102.2321428571429"/>
+            <point key="canvasLocation" x="1813" y="1102"/>
         </scene>
         <!--Calculate-->
         <scene sceneID="z9I-gE-gQy">
@@ -1214,22 +1219,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Syx-bd-0jC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2708.6956521739135" y="-1072.0982142857142"/>
-        </scene>
-        <!--Cart-->
-        <scene sceneID="P3h-xc-Gtu">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1Yt-we-26n" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Cart" image="cart.fill" catalog="system" selectedImage="cart.fill" id="OWu-ek-dhL"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ghw-hd-Mi1">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xyP-hB-QzT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1771.0144927536232" y="1102.2321428571429"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cGZ-er-esX">

@@ -20,19 +20,6 @@ class ProductApi {
         
         refProduct.document().setData(Product.creatProduct(productImage: productImage, productName: productName))
         
-        //        getDocuments { documants, erorr in
-        //
-        //            guard let decumants = documants?.documents else {return}
-        //            for documant in decumants {
-        //                refProduct.document(documant.documentID).getDocument { documant, error in
-        //                    if let doc = documant, doc.exists{
-        //                        let products = Product.getImage(dect: doc.data()!)
-        //                        completion(products)
-        //                    }
-        //                }
-        //
-        //            }
-        //        }
     }
     
     static func getProducts(com:@escaping (Product) -> Void){
@@ -51,7 +38,7 @@ class ProductApi {
         
     }
     
-    static func uploadImageToFirebase(screenShot:UIImage ,completion: @escaping (Bool,String?) -> Void){
+    static func uploadImageToFirebase(screenShot:UIImage,nameText:String ,completion: @escaping (Bool,String?) -> Void){
         
         
         let storageReference = Storage.storage().reference()

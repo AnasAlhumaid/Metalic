@@ -14,11 +14,19 @@ import UIKit
 class ProductApi {
     
     
-    static func AddProduct(productImage:String,productName:String){
+    static func AddDrawProduct(productImage:String,productName:String){
         
         let refProduct = Firestore.firestore().collection("Product")
         
-        refProduct.document().setData(Product.creatProduct(productImage: productImage, productName: productName))
+        refProduct.document().setData(Product.creatDrawProduct(productImage: productImage, productName: productName))
+        
+    }
+    
+    static func AddProduct(productImage:String,productName:String, productSize: String, productNumber: Int, productMaterial: String, productColor: String, productWight: Double, productThreadSize: Double, productLength: Double, productHeadStyle: String, productHeadDimeter: Double, productHeadHeight: Double, productThreadPich: Double, productThreadType: String, productDriverSize: Double, productStrength: Double, productThreadLength: Double, productPrice:Double){
+        
+        let refProduct = Firestore.firestore().collection("Product")
+        
+        refProduct.document().setData(Product.creatProduct(productImage: productImage, productName: productName, productSize: productSize, productNumber: productNumber, productMaterial: productMaterial, productColor: productColor, productWight: productWight, productThreadSize: productThreadSize, productLength: productLength, productHeadStyle: productHeadStyle, productHeadDimeter: productHeadDimeter, productHeadHeight: productHeadHeight, productThreadPich: productThreadPich, productThreadType: productThreadType, productDriverSize: productDriverSize, productStrength: productStrength, productThreadLength: productThreadLength, productPrice: productPrice ))
         
     }
     
@@ -35,7 +43,6 @@ class ProductApi {
                 }
             }
         }
-        
     }
     
     static func uploadImageToFirebase(screenShot:UIImage,nameText:String ,completion: @escaping (Bool,String?) -> Void){

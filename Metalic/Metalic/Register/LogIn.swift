@@ -21,6 +21,13 @@ class LogIn : UIViewController{
         super.viewDidLoad()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+       if Auth.auth().currentUser != nil {
+           self.performSegue(withIdentifier: "HomePage", sender: nil)
+          
+       }
+    }
+    
     func checkText(){
         
         if userNameText.text?.isEmpty == true || passWordText.text?.isEmpty == true {

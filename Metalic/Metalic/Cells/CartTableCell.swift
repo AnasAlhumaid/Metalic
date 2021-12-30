@@ -7,11 +7,20 @@
 
 import UIKit
 
+//protocol CalculatePrice: AnyObject {
+//    func totalPrice(_ cell: CartTableCell)
+//}
 class CartTableCell: UITableViewCell {
 
     @IBOutlet var orderPrice: UILabel!
     @IBOutlet var orderLabel: UILabel!
+    @IBOutlet var cellView: UIView!
     @IBOutlet var orderImage: UIImageView!
+    @IBOutlet var productDetail: UILabel!
+    @IBOutlet var productTextField: UITextField!
+    
+  //  weak var delegate: CalculatePrice?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -22,5 +31,7 @@ class CartTableCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    
 
 }

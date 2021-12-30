@@ -9,10 +9,17 @@ import Foundation
 import UIKit
 
 class Orders {
+    
     var products : [Product]?
     var orderDate : Date?
-    var detail : String?
-    
+    var orderNumber: Int?
+    var orderAddress : String?
+    var orderPhoneNumber : String?
+    var orderCompanyName : String?
+    var orderZipCode : Int?
+    var orderCity : String?
+    var orderState : Bool?
+    var orderDelevaryMethods : String?
     
 }
 
@@ -22,8 +29,15 @@ extension Orders {
         let products = Orders()
         products.products = dect["products"] as? [Product]
         products.orderDate = dect["orderDate"] as? Date
-        products.detail = dect["detail"] as? String
-        
+        products.orderNumber = dect["orderNumber"] as? Int
+        products.orderAddress = dect["orderAddress"] as? String
+        products.orderPhoneNumber = dect["orderPhoneNumber"] as? String
+        products.orderCompanyName = dect["orderCompanyName"] as? String
+        products.orderZipCode = dect["orderZipCode"] as? Int
+        products.orderCity = dect["orderCity"] as? String
+        products.orderState = dect["orderState"] as? Bool
+        products.orderDelevaryMethods = dect["orderDelevaryMethods"] as? String
+
         
         return products
     }
@@ -37,3 +51,4 @@ extension Orders {
     
     
 }
+

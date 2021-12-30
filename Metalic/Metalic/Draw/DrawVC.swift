@@ -131,7 +131,7 @@ class DrawVC : UIViewController, PKCanvasViewDelegate, PKToolPickerObserver {
         ProductApi.uploadImageToFirebase(screenShot: screenShot, nameText: nameText) { check, urlDownload in
             
             Utils.stop(view: self.view, activityIndicator: self.activityView!)
-            ProductApi.AddProduct(productImage: urlDownload ?? "", productName: nameText)
+            ProductApi.AddDrawProduct(productImage: urlDownload ?? "", productName: nameText)
             
         }
         

@@ -16,7 +16,7 @@ class OrderApi {
     
     let refProduct = Firestore.firestore().collection("Order")
     
-    refProduct.document().setData(Orders.creatOrder(order: order, orderDate: orderDate, detail: detail))
+        refProduct.document().setData(Orders.creatOrder(products: order, orderDate: orderDate, detail: detail))
         
         
 }

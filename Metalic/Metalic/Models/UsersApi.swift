@@ -16,9 +16,17 @@ class UserApi {
     static func addUsers(uid:String,userEmail:String, userFullName : String, completion: @escaping (Bool) -> Void ){
         let db = Firestore.firestore()
         let refUsers = db.collection("Users")
-        refUsers.document(uid).setData(Users.creatUsers(userFullName: userFullName, userEmail: userEmail))
+        refUsers.document(uid).setData(Users.creatUsers(userFullName: userFullName, userEmail: userEmail, imageProfile: " "))
         
         completion(true)
+    }
+    static func addImageProfile (uid:String,url:String){
+        
+        
+        let refusers = Firestore.firestore().collection("Users")
+        refusers.document(uid).setData(Users.putImage(imageUrlProfile: url), merge: true)
+
+        
     }
     
     

@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseFirestore
 
 class SheetsDraw: UIViewController {
     
@@ -14,6 +16,7 @@ class SheetsDraw: UIViewController {
     var sheets : Product?
     var orders = [Orders]()
     var activityView: UIActivityIndicatorView?
+    
     
     var selectedImage : String?
     
@@ -30,6 +33,51 @@ class SheetsDraw: UIViewController {
                 self.SheetCollection.reloadData()
             }
         }
+        
+        
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as? EditDrawVC
+        vc?.selectedImage = selectedImage
+        
+    }
+    
+    @IBAction func AddNewDraw(_ sender: Any) {
+        
+
+    }
+    
+    
+    
+    func ShowAlert(){
+        
+        let alert = UIAlertController(title: "Choose", message: "", preferredStyle: .actionSheet)
+        
+        
+        let drawing = UIAlertAction(title:"New Project", style: .default) { UIAlertAction in
+            self.performSegue(withIdentifier: "NewDraw", sender: nil)
+            
+        }
+            
+            
+            let addImage = UIAlertAction(title: "Edit", style: .default) { UIAlertActions in
+                self.selectedImage = self.product[0].productImage
+                self.performSegue(withIdentifier: "EditDraw", sender: nil)
+            }
+        
+        
+        
+        alert.addAction(drawing)
+        alert.addAction(addImage)
+        
+        present(alert, animated: true, completion: nil)
+        
+        
+        
+        
+        
+        
+        
     }
     
     
@@ -57,41 +105,39 @@ extension SheetsDraw : UICollectionViewDelegate,UICollectionViewDelegateFlowLayo
             
         }
         
+        cell.sheetsView.layer.shadowColor = UIColor.gray.cgColor
+        cell.sheetsView.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
+        cell.sheetsView.layer.shadowOpacity = 2.0
+        cell.sheetsView.layer.masksToBounds = false
+        cell.sheetsView.layer.cornerRadius = 2.0
+        cell.sheetsView.layer.cornerRadius = 8.0
+        cell.SheetImage.layer.cornerRadius = 8.0
+        
+        
         return cell
         
     }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let vc = segue.destination as? EditDrawVC
-        vc?.selectedImage = selectedImage
-    }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let alert = UIAlertController(title: "Choose", message: "", preferredStyle: .actionSheet)
         
-        
-        let drawing = UIAlertAction(title:"New Project", style: .default) { UIAlertAction in
-            self.performSegue(withIdentifier: "NewDraw", sender: nil)
-            
-        }
-            
-            
-            let addImage = UIAlertAction(title: "Edit", style: .default) { UIAlertActions in
-                self.selectedImage = self.product[indexPath.row].productImage
-                self.performSegue(withIdentifier: "EditDraw", sender: nil)
-            }
+
         
         let cancel = UIAlertAction(title: "cancel", style: .cancel, handler: nil)
         
         let addToCart = UIAlertAction(title: "Add to Cart ", style: .default) { [self] UIAlertAction in
-            Utils.start(view: self.view, activityIndicator: self.activityView!, isUserInteractionEnabled: false)
+            let random = String(Int(arc4random()))
             
-            let newProduct = product[indexPath.row].productImage
-            let newname = product[indexPath.row].productName
-            orders?.append(product)
+            CartApi.AddCart(random: random, cart: "", uid: Auth.auth().currentUser?.uid ?? "", productImage: product[indexPath.row].productImage ?? "", productName: product[indexPath.row].productName ?? "", productSize: "pinding", productNumber: 1, productMaterial: "pinding" , productColor: "pinding" , productWight: 0.0 , productThreadSize: 0.0, productLength: 0.0, productHeadStyle: "" , productHeadDimeter: 0.0 , productHeadHeight: 0.0 , productThreadPich: 0.0 , productThreadType: "", productDriverSize: 0.0 , productStrength: 0.0 , productThreadLength: 0.0 , productPrice: 0.0 )
+            
+
+//
+//        }
+            
         }
             
-            alert.addAction(drawing)
-            alert.addAction(addImage)
+     
             alert.addAction(cancel)
             alert.addAction(addToCart)
         

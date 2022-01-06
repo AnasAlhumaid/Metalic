@@ -15,7 +15,7 @@ class Cart {
     var productName : String?
     var productPrice : Double?
     var productSize : String?
-    var productNumber : Int?
+    var productNumber : String?
     var productMaterial : String?
     var productColor : String?
     var productWight : Double?
@@ -41,7 +41,7 @@ extension Cart {
         products.productPrice = dect["productPrice"] as? Double
         products.productName = dect["productName"] as? String
         products.productSize = dect["productSize"] as? String
-        products.productNumber = dect["productNumber"] as? Int
+        products.productNumber = dect["productNumber"] as? String
         products.productMaterial = dect["productMaterial"] as? String
         products.productColor = dect["productColor"] as? String
         products.productWight = dect["productWight"] as? Double
@@ -60,7 +60,7 @@ extension Cart {
 }
     
     
-    static func creatCart(productImage:String,productName:String,productSize:String,productNumber:Int,productMaterial:String,productColor:String,productWight:Double,productThreadSize:Double,productLength:Double,productHeadStyle:String,productHeadDimeter:Double,productHeadHeight:Double,productThreadPich:Double,productThreadType:String,productDriverSize:Double,productStrength:Double,productThreadLength:Double, productPrice : Double) -> [String:Any] {
+    static func creatCart(productImage:String,productName:String,productSize:String,productNumber:String,productMaterial:String,productColor:String,productWight:Double,productThreadSize:Double,productLength:Double,productHeadStyle:String,productHeadDimeter:Double,productHeadHeight:Double,productThreadPich:Double,productThreadType:String,productDriverSize:Double,productStrength:Double,productThreadLength:Double, productPrice : Double) -> [String:Any] {
         
        // let newCart = ["cartProducts": cart] as [String:Any]
         let newCart = ["productImage":productImage,"productName":productName,"productSize":productSize, "productNumber":productNumber,"productMaterial":productMaterial,"productColor":productColor,"productWight":productWight,"productThreadSize":productThreadSize,"productLength":productLength,"productHeadStyle":productHeadStyle,"productHeadDimeter":productHeadDimeter,"productHeadHeight":productHeadHeight,"productThreadPich":productThreadPich,"productThreadType":productThreadType,"productDriverSize":productDriverSize,"productStrength":productStrength,"productThreadLength":productThreadLength,"productPrice":productPrice] as [String:Any]

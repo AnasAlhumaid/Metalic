@@ -12,6 +12,7 @@ import UIKit
 class ProductCollectionSheetCell : UICollectionViewCell{
     @IBOutlet var SheetImage: UIImageView!
     @IBOutlet var nameLabe: UILabel!
-    
     @IBOutlet var sheetsView: UIView!
+    
+    
 }

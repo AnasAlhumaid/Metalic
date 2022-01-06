@@ -6,12 +6,14 @@
 //
 
 import UIKit
+import Hero
 
 class ProductListCellTableViewCell: UITableViewCell {
 
     @IBOutlet var cellView: UIView!
     @IBOutlet var imageCell: UIImageView!
     @IBOutlet var labelCell: UILabel!
+    var imageselected : UIImage?
     
     
     let service = ["Machining Lathe","Machining Milling","Welding","hydraulic service","CNC"]
@@ -19,6 +21,7 @@ class ProductListCellTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        imageCell.hero.id = "imageCell"
         // Initialization code
     }
 

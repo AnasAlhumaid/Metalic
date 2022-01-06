@@ -7,9 +7,9 @@
 
 import UIKit
 
-//protocol CalculatePrice: AnyObject {
-//    func totalPrice(_ cell: CartTableCell)
-//}
+protocol CalculatePrice: AnyObject {
+    func totalPrices(_ cell: CartTableCell)
+}
 class CartTableCell: UITableViewCell {
 
     @IBOutlet var orderPrice: UILabel!
@@ -17,13 +17,21 @@ class CartTableCell: UITableViewCell {
     @IBOutlet var cellView: UIView!
     @IBOutlet var orderImage: UIImageView!
     @IBOutlet var productDetail: UILabel!
-    @IBOutlet var productTextField: UITextField!
+    @IBOutlet var SteperLabel: UILabel!
+    @IBOutlet var stepper: UIStepper!
     
-  //  weak var delegate: CalculatePrice?
+    
+    weak var delegate: CalculatePrice?
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        stepper.wraps = true
+         stepper.autorepeat = false
+        
+         stepper.maximumValue = 100
+        stepper.minimumValue = 1
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -31,6 +39,13 @@ class CartTableCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    @IBAction func StepperAction(_ sender: UIStepper) {
+        delegate?.totalPrices(self)
+        SteperLabel.text = Int(sender.value).description
+        
+
+    }
+    
     
     
 

@@ -8,6 +8,7 @@
 import UIKit
 import FirebaseAuth
 import FirebaseFirestore
+import Kingfisher
 
 class SheetsDraw: UIViewController {
     
@@ -26,15 +27,18 @@ class SheetsDraw: UIViewController {
         
         SheetCollection.dataSource = self
         SheetCollection.delegate = self
-        
-        ProductApi.getProducts { product in
+    
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        product.removeAll()
+        ProductApi.getProducts(uid:Auth.auth().currentUser?.uid ?? "" ) { product in
             DispatchQueue.main.async {
                 self.product.append(product)
                 self.SheetCollection.reloadData()
             }
         }
-        
-        
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination as? EditDrawVC
@@ -43,8 +47,7 @@ class SheetsDraw: UIViewController {
     }
     
     @IBAction func AddNewDraw(_ sender: Any) {
-        
-
+        ShowAlert()
     }
     
     
@@ -58,30 +61,22 @@ class SheetsDraw: UIViewController {
             self.performSegue(withIdentifier: "NewDraw", sender: nil)
             
         }
-            
-            
-            let addImage = UIAlertAction(title: "Edit", style: .default) { UIAlertActions in
-                self.selectedImage = self.product[0].productImage
-                self.performSegue(withIdentifier: "EditDraw", sender: nil)
-            }
         
+        
+        let addImage = UIAlertAction(title: "Edit", style: .default) { UIAlertActions in
+            self.selectedImage = self.product[0].productImage
+            self.performSegue(withIdentifier: "EditDraw", sender: nil)
+        }
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
         
         
         alert.addAction(drawing)
         alert.addAction(addImage)
+        alert.addAction(cancel)
         
         present(alert, animated: true, completion: nil)
         
-        
-        
-        
-        
-        
-        
     }
-    
-    
-    
     
 }
 extension SheetsDraw : UICollectionViewDelegate,UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
@@ -98,12 +93,16 @@ extension SheetsDraw : UICollectionViewDelegate,UICollectionViewDelegateFlowLayo
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SheetCell", for: indexPath) as? ProductCollectionSheetCell else { return UICollectionViewCell()}
         guard let arrayOfSheet = product[indexPath.row].productImage else {return UICollectionViewCell()}
         
-        guard let url = URL(string: arrayOfSheet) else {return UICollectionViewCell()}
-        if let data = try? Data(contentsOf: url){
-            cell.SheetImage.image = UIImage(data: data)
-            cell.nameLabe.text = product[indexPath.row].productName
-            
-        }
+        let url = URL(string: arrayOfSheet)
+        //        if let data = try? Data(contentsOf: url){
+        
+        //            cell.SheetImage.image = UIImage(data: data)
+        cell.SheetImage.kf.setImage(with: url, options: [.cacheOriginalImage])
+        
+        
+        cell.nameLabe.text = product[indexPath.row].productName
+        
+        
         
         cell.sheetsView.layer.shadowColor = UIColor.gray.cgColor
         cell.sheetsView.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
@@ -122,32 +121,52 @@ extension SheetsDraw : UICollectionViewDelegate,UICollectionViewDelegateFlowLayo
         
         let alert = UIAlertController(title: "Choose", message: "", preferredStyle: .actionSheet)
         
-
-        
         let cancel = UIAlertAction(title: "cancel", style: .cancel, handler: nil)
+        
+        let deletItem = UIAlertAction(title: "Delete", style: .destructive) { action in
+            if let selectedCells = collectionView.indexPathsForSelectedItems {
+              // 1
+              let items = selectedCells.map { $0.item }.sorted().reversed()
+              // 2
+              for item in items {
+                  self.product.remove(at: item)
+              }
+              // 3
+              collectionView.deleteItems(at: selectedCells)
+            }
+            
+            ProductApi.deleteDocument(documentID: self.product[indexPath.row].id ?? "")
+            
+        }
         
         let addToCart = UIAlertAction(title: "Add to Cart ", style: .default) { [self] UIAlertAction in
             let random = String(Int(arc4random()))
             
-            CartApi.AddCart(random: random, cart: "", uid: Auth.auth().currentUser?.uid ?? "", productImage: product[indexPath.row].productImage ?? "", productName: product[indexPath.row].productName ?? "", productSize: "pinding", productNumber: 1, productMaterial: "pinding" , productColor: "pinding" , productWight: 0.0 , productThreadSize: 0.0, productLength: 0.0, productHeadStyle: "" , productHeadDimeter: 0.0 , productHeadHeight: 0.0 , productThreadPich: 0.0 , productThreadType: "", productDriverSize: 0.0 , productStrength: 0.0 , productThreadLength: 0.0 , productPrice: 0.0 )
+            CartApi.AddCart(random: random, cart: "", uid: Auth.auth().currentUser?.uid ?? "", productImage: product[indexPath.row].productImage ?? "", productName: product[indexPath.row].productName ?? "", productSize: "pinding", productNumber: "\(random)", productMaterial: "pinding" , productColor: "pinding" , productWight: 0.0 , productThreadSize: 0.0, productLength: 0.0, productHeadStyle: "" , productHeadDimeter: 0.0 , productHeadHeight: 0.0 , productThreadPich: 0.0 , productThreadType: "", productDriverSize: 0.0 , productStrength: 0.0 , productThreadLength: 0.0 , productPrice: 0.0 )
             
-
-//
-//        }
+            
+            //
+            //        }
             
         }
-            
-     
-            alert.addAction(cancel)
-            alert.addAction(addToCart)
-        
-            present(alert, animated: true, completion: nil)
         
         
-            }
-    
-
- 
+        alert.addAction(cancel)
+        alert.addAction(addToCart)
+        alert.addAction(deletItem)
+        
+        present(alert, animated: true, completion: nil)
+        
+        
     }
     
-   
+    
+    
+    
+    
+}
+
+
+
+
+

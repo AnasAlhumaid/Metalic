@@ -26,6 +26,9 @@ class Registrations :UIViewController{
         super.viewDidLoad()
         
         
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissTap))
+        view.addGestureRecognizer(tap)
+        
     }
     
     func checkText(){
@@ -82,7 +85,13 @@ class Registrations :UIViewController{
     }
     
     
-    
+    @objc func dismissTap() {
+        userNametxtR.resignFirstResponder()
+        passWordR.resignFirstResponder()
+        fullNametxtR.resignFirstResponder()
+        rePasswordTextR.resignFirstResponder()
+        
+    }
     
     
 }

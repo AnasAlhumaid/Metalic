@@ -19,6 +19,10 @@ class LogIn : UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissTap))
+        view.addGestureRecognizer(tap)
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -75,6 +79,11 @@ class LogIn : UIViewController{
         
         present(alert, animated: true, completion: nil)
         
+    }
+    
+    @objc func dismissTap() {
+        userNameText.resignFirstResponder()
+        passWordText.resignFirstResponder()
     }
     
     

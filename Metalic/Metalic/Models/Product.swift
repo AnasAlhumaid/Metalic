@@ -36,6 +36,7 @@ class Product {
     var productDriverSize : Double?
     var productStrength : Double?
     var productThreadLength : Double?
+    var id: String?
 
 }
 
@@ -61,21 +62,23 @@ extension Product {
         products.productDriverSize = dect["productDriverSize"] as? Double
         products.productStrength = dect["productStrength"] as? Double
         products.productThreadLength = dect["productThreadLength"] as? Double
+        products.id = dect["id"] as? String
         
         return products
     }
   
     //
-    static func creatDrawProduct(productImage : String, productName : String ) -> [String:Any] {
+    static func creatDrawProduct(productImage : String, productName : String, id :String ) -> [String:Any] {
         
-        let newDrawProduct = ["productName": productName, "productImage": productImage] as [String:Any]
+        let newDrawProduct = ["productName": productName, "productImage": productImage,"uid":id] as [String:Any]
         return newDrawProduct
         
     }
     
-    static func creatProduct(productImage:String,productName:String,productSize:String,productNumber:Int,productMaterial:String,productColor:String,productWight:Double,productThreadSize:Double,productLength:Double,productHeadStyle:String,productHeadDimeter:Double,productHeadHeight:Double,productThreadPich:Double,productThreadType:String,productDriverSize:Double,productStrength:Double,productThreadLength:Double, productPrice : Double) -> [String:Any] {
+    static func creatProduct(productImage:String,productName:String,productSize:String,productNumber:Int,productMaterial:String,productColor:String,productWight:Double,productThreadSize:Double,productLength:Double,productHeadStyle:String,productHeadDimeter:Double,productHeadHeight:Double,productThreadPich:Double,productThreadType:String,productDriverSize:Double,productStrength:Double,productThreadLength:Double, productPrice : Double,uid:String) -> [String:Any] {
         
-        let newProduct = ["productImage":productImage,"productName":productName,"productSize":productSize, "productNumber":productNumber,"productMaterial":productMaterial,"productColor":productColor,"productWight":productWight,"productThreadSize":productThreadSize,"productLength":productLength,"productHeadStyle":productHeadStyle,"productHeadDimeter":productHeadDimeter,"productHeadHeight":productHeadHeight,"productThreadPich":productThreadPich,"productThreadType":productThreadType,"productDriverSize":productDriverSize,"productStrength":productStrength,"productThreadLength":productThreadLength,"productPrice":productPrice] as [String:Any]
+        let newProduct = ["productImage":productImage,"productName":productName,"productSize":productSize, "productNumber":productNumber,"productMaterial":productMaterial,"productColor":productColor,"productWight":productWight,"productThreadSize":productThreadSize,"productLength":productLength,"productHeadStyle":productHeadStyle,"productHeadDimeter":productHeadDimeter,"productHeadHeight":productHeadHeight,"productThreadPich":productThreadPich,"productThreadType":productThreadType,"productDriverSize":productDriverSize,"productStrength":productStrength,"productThreadLength":productThreadLength,"productPrice":productPrice
+                          ,"uid":uid] as [String:Any]
         
         return newProduct
         

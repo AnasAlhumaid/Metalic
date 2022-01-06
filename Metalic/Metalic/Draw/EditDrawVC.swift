@@ -7,6 +7,7 @@
 import Foundation
 import UIKit
 import PencilKit
+import FirebaseAuth
 
 class EditDrawVC: UIViewController, PKCanvasViewDelegate, PKToolPickerObserver {
 
@@ -135,7 +136,7 @@ class EditDrawVC: UIViewController, PKCanvasViewDelegate, PKToolPickerObserver {
         ProductApi.uploadImageToFirebase(screenShot: screenShot, nameText: nameText) { check, urlDownload in
             
             Utils.stop(view: self.view, activityIndicator: self.activityView!)
-            ProductApi.AddDrawProduct(productImage: urlDownload ?? "", productName: "Test")
+            ProductApi.AddDrawProduct(uid: Auth.auth().currentUser?.uid ?? "" , productImage: urlDownload ?? "", productName: nameText)
             
         }
         

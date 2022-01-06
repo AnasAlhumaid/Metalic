@@ -13,7 +13,7 @@ import FirebaseFirestore
 
 class CartApi {
     
-    static func AddCart(random:String,cart:String,uid:String,productImage: String, productName: String, productSize: String?, productNumber: Int, productMaterial: String?, productColor: String?, productWight: Double?, productThreadSize: Double?, productLength: Double?, productHeadStyle: String?, productHeadDimeter: Double?, productHeadHeight: Double?, productThreadPich: Double?, productThreadType: String?, productDriverSize: Double?, productStrength: Double?, productThreadLength: Double?, productPrice: Double? ){
+    static func AddCart(random:String,cart:String,uid:String,productImage: String, productName: String, productSize: String?, productNumber: String, productMaterial: String?, productColor: String?, productWight: Double?, productThreadSize: Double?, productLength: Double?, productHeadStyle: String?, productHeadDimeter: Double?, productHeadHeight: Double?, productThreadPich: Double?, productThreadType: String?, productDriverSize: Double?, productStrength: Double?, productThreadLength: Double?, productPrice: Double? ){
         
         let refProduct = Firestore.firestore().collection("Cart")
         
@@ -42,14 +42,14 @@ class CartApi {
         
     }
     
-    static func deleteCart(uid:String){
+    static func deleteCart(uid:String,ProductNumber:String){
         
        let db = Firestore.firestore()
         db.collection("Cart").document(uid).updateData([
-            "capital": FieldValue.delete(),
-        ]) { err in
-            if let err = err {
-                print("Error updating document: \(err)")
+            ProductNumber : FieldValue.delete(),
+        ]) { error in
+            if let error = error {
+                print("Error updating document: \(error)")
             } else {
                 print("Document successfully updated")
             }

@@ -134,9 +134,7 @@ class DrawVC : UIViewController, PKCanvasViewDelegate, PKToolPickerObserver {
             ProductApi.AddDrawProduct(uid: Auth.auth().currentUser?.uid ?? "", productImage: urlDownload ?? "", productName: nameText)
             
         }
-        
-        
-
+    
     }
     
     func desplayAlert(){

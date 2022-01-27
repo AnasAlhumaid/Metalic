@@ -25,9 +25,12 @@
 		D84EA5CD27677EB60038C580 /* SheetsDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84EA5CC27677EB60038C580 /* SheetsDraw.swift */; };
 		D84EA5CF27687FE60038C580 /* EditDrawVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84EA5CE27687FE60038C580 /* EditDrawVC.swift */; };
 		D84EA5D12768A7E10038C580 /* CartTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84EA5D02768A7E10038C580 /* CartTableCell.swift */; };
+		D8A46F07279EA63F0074E62E /* ShowProductVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A46F06279EA63E0074E62E /* ShowProductVC.swift */; };
+		D8A46F09279EA6840074E62E /* ShowProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A46F08279EA6840074E62E /* ShowProductCell.swift */; };
 		D8AA958027858D4200C9F5D4 /* Hero in Frameworks */ = {isa = PBXBuildFile; productRef = D8AA957F27858D4200C9F5D4 /* Hero */; };
 		D8AA95852785C11800C9F5D4 /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AA95842785C11800C9F5D4 /* PhotoModel.swift */; };
 		D8C90FDA2781A15A0008D30D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = D8C90FD92781A15A0008D30D /* Kingfisher */; };
+		D8DC609427A14437003CE0BC /* ShowProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DC609327A14437003CE0BC /* ShowProduct.swift */; };
 		D8DF3D882761F570007F5EA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DF3D872761F570007F5EA4 /* AppDelegate.swift */; };
 		D8DF3D8A2761F570007F5EA4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DF3D892761F570007F5EA4 /* SceneDelegate.swift */; };
 		D8DF3D8C2761F570007F5EA4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DF3D8B2761F570007F5EA4 /* ViewController.swift */; };
@@ -66,7 +69,10 @@
 		D84EA5CC27677EB60038C580 /* SheetsDraw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetsDraw.swift; sourceTree = "<group>"; };
 		D84EA5CE27687FE60038C580 /* EditDrawVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDrawVC.swift; sourceTree = "<group>"; };
 		D84EA5D02768A7E10038C580 /* CartTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableCell.swift; sourceTree = "<group>"; };
+		D8A46F06279EA63E0074E62E /* ShowProductVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowProductVC.swift; sourceTree = "<group>"; };
+		D8A46F08279EA6840074E62E /* ShowProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowProductCell.swift; sourceTree = "<group>"; };
 		D8AA95842785C11800C9F5D4 /* PhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModel.swift; sourceTree = "<group>"; };
+		D8DC609327A14437003CE0BC /* ShowProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowProduct.swift; sourceTree = "<group>"; };
 		D8DF3D842761F570007F5EA4 /* Metalic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Metalic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8DF3D872761F570007F5EA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8DF3D892761F570007F5EA4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -191,6 +197,7 @@
 			children = (
 				D8DF3DAF2765CCFB007F5EA4 /* ProductVC.swift */,
 				D82668E5277B32C600FACA70 /* ProductDetail.swift */,
+				D8A46F06279EA63E0074E62E /* ShowProductVC.swift */,
 			);
 			path = Product;
 			sourceTree = "<group>";
@@ -211,6 +218,7 @@
 				D8DF3DC02765E3BC007F5EA4 /* ProductListCellTableViewCell.swift */,
 				D84EA5CA27677D4C0038C580 /* ProductDrawingCell.swift */,
 				D84EA5D02768A7E10038C580 /* CartTableCell.swift */,
+				D8A46F08279EA6840074E62E /* ShowProductCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -229,6 +237,7 @@
 				D80BB70A277741D900437EFF /* Cart.swift */,
 				D80BB70C277741E700437EFF /* CartApi.swift */,
 				D8AA95842785C11800C9F5D4 /* PhotoModel.swift */,
+				D8DC609327A14437003CE0BC /* ShowProduct.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -330,7 +339,9 @@
 				D8DF3DC8276603CC007F5EA4 /* UsersApi.swift in Sources */,
 				D84EA5D12768A7E10038C580 /* CartTableCell.swift in Sources */,
 				D82B40852769C3B800C87573 /* OrderApi.swift in Sources */,
+				D8A46F07279EA63F0074E62E /* ShowProductVC.swift in Sources */,
 				D8DF3D9F2765CB59007F5EA4 /* LogIn.swift in Sources */,
+				D8DC609427A14437003CE0BC /* ShowProduct.swift in Sources */,
 				D8DF3D8C2761F570007F5EA4 /* ViewController.swift in Sources */,
 				D84EA5C92767700A0038C580 /* Ex.swift in Sources */,
 				D80BB71027788BBA00437EFF /* FirstScreen.swift in Sources */,
@@ -345,6 +356,7 @@
 				D8DF3DAA2765CC99007F5EA4 /* CatrVC.swift in Sources */,
 				D8DF3DC12765E3BC007F5EA4 /* ProductListCellTableViewCell.swift in Sources */,
 				D84EA5C72767266B0038C580 /* CalculationsModel.swift in Sources */,
+				D8A46F09279EA6840074E62E /* ShowProductCell.swift in Sources */,
 				D8DF3DA72765CC68007F5EA4 /* SpeedGearVC.swift in Sources */,
 				D8DF3DC62765EE08007F5EA4 /* UsersData.swift in Sources */,
 				D8DF3D922761F570007F5EA4 /* Metalic.xcdatamodeld in Sources */,

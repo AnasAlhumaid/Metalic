@@ -10,6 +10,8 @@ import UIKit
 protocol CalculatePrice: AnyObject {
     func totalPrices(_ cell: CartTableCell)
 }
+
+
 class CartTableCell: UITableViewCell {
 
     @IBOutlet var orderPrice: UILabel!

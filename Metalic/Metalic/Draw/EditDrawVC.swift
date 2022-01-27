@@ -60,12 +60,10 @@ class EditDrawVC: UIViewController, PKCanvasViewDelegate, PKToolPickerObserver {
             } else {
                 activityView = UIActivityIndicatorView(style: .whiteLarge)
             }
+        
             activityView?.color = .label
-            //activityView?.center = self.view.center
-    
             container.addSubview(activityView!)
-            //self.view.addSubview(container)
-            //activityView?.startAnimating()
+
         }
     
     
@@ -84,10 +82,7 @@ class EditDrawVC: UIViewController, PKCanvasViewDelegate, PKToolPickerObserver {
             delegateCanv()
             view.addSubview(canvasView)
             
-        
-            
         }
-        
         
     }
     
@@ -139,14 +134,7 @@ class EditDrawVC: UIViewController, PKCanvasViewDelegate, PKToolPickerObserver {
             ProductApi.AddDrawProduct(uid: Auth.auth().currentUser?.uid ?? "" , productImage: urlDownload ?? "", productName: nameText)
             
         }
-        
-        
-        
-//        DispatchQueue.main.async {
-//            let screeSheet = UIActivityViewController(activityItems: [screenShot], applicationActivities: nil)
-//
-//            self.present(screeSheet, animated: true, completion: nil)
-//        }
+    
     }
     
     func desplayAlert(){
@@ -166,15 +154,5 @@ class EditDrawVC: UIViewController, PKCanvasViewDelegate, PKToolPickerObserver {
         alert.addAction(ok)
         present(alert, animated: true )
         
-        
-        
     }
 }
-
-
-
-
-
-
-
-

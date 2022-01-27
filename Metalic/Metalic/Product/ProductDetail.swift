@@ -21,10 +21,10 @@ class ProductDetails : UIViewController{
     
     @IBOutlet var definitionLable: UILabel!
     
+    @IBOutlet var moreInfo: UILabel!
+    
     var arr  : ProductVC?
-    
     var photolist : HeroModel?
-    
     var selectedimage : String?
     var nameLabel : String?
     var DetailLabel : String?
@@ -34,38 +34,20 @@ class ProductDetails : UIViewController{
         
         imageView.image =  UIImage(named:selectedimage ?? "")
         titelLabel.text = nameLabel
+        moreInfo.text = "You can choose from our Product and it ready for shipping"
         
         view.addSubview(backButton)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        
-        super.viewWillAppear(animated)
-        
-//        guard let photo = photolist?.PhotoImage else {return}
-//        imageView.image = UIImage(named: photo)
-//        imageView.heroID = photolist?.PhotoID
-//        imageView.image = UIImage(named: selectedimage ?? "" )
-//        imageView.heroID = "image"
-//
-//        whiteView.hero.modifiers = [.translate(y:100)]
-        
-//        imageView.image = UIImage(named: selectedimage ?? "")
-    }
+
     func ImageAnimat(){
         
         imageView.transform = CGAffineTransform(scaleX: 500, y: 500)
     
-        
-        
-    }
-    
-    func zoomIn() {
-     
     }
     
     lazy var backButton: UIButton = {
-           let button: UIButton = UIButton(frame: CGRect(x: 10, y: 30, width: 60, height: 30))
+           let button: UIButton = UIButton(frame: CGRect(x: 10, y: 50, width: 60, height: 30))
            button.addTarget(self, action: #selector(back(_:)), for: .touchUpInside)
            button.setTitle("Back", for: .normal)
            return button
@@ -77,6 +59,10 @@ class ProductDetails : UIViewController{
     
     
     
+    @IBAction func ShowproBtn(_ sender: Any) {
+        
+        performSegue(withIdentifier: "Show", sender: self)
+    }
     
     
     

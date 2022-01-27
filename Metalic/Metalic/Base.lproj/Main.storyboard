@@ -883,12 +883,9 @@
                                                             <buttonConfiguration key="configuration" style="plain" title="">
                                                                 <backgroundConfiguration key="background" image="cart.circle" catalog="system"/>
                                                             </buttonConfiguration>
-                                                            <connections>
-                                                                <action selector="cartButton:" destination="StC-ce-Zh4" eventType="touchUpInside" id="0Fs-dp-bd9"/>
-                                                            </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HCg-c4-qFM">
-                                                            <rect key="frame" x="299" y="8" width="67" height="48"/>
+                                                            <rect key="frame" x="271.33333333333331" y="8" width="94.666666666666686" height="31"/>
                                                             <state key="normal" title="Button"/>
                                                             <buttonConfiguration key="configuration" style="filled" title="add to cart"/>
                                                         </button>
@@ -903,7 +900,6 @@
                                                         <constraint firstAttribute="bottom" secondItem="Tgy-z6-93h" secondAttribute="bottom" id="JYH-Xm-NnJ"/>
                                                         <constraint firstAttribute="bottom" secondItem="AKz-Hb-cYQ" secondAttribute="bottom" constant="8" id="Kk8-AZ-gnY"/>
                                                         <constraint firstItem="Tgy-z6-93h" firstAttribute="leading" secondItem="oqF-ik-Wde" secondAttribute="leading" constant="8" id="Qxt-ve-HOI"/>
-                                                        <constraint firstItem="HCg-c4-qFM" firstAttribute="leading" secondItem="Tgy-z6-93h" secondAttribute="trailing" constant="173" id="W6o-Vt-srq"/>
                                                         <constraint firstItem="oJg-4u-roe" firstAttribute="top" secondItem="oqF-ik-Wde" secondAttribute="top" constant="37" id="aZe-ku-Dm6"/>
                                                         <constraint firstItem="oJg-4u-roe" firstAttribute="leading" secondItem="Tgy-z6-93h" secondAttribute="trailing" constant="8" symbolic="YES" id="aZt-YW-8ck"/>
                                                         <constraint firstItem="Scw-R2-lAP" firstAttribute="width" secondItem="oJg-4u-roe" secondAttribute="width" multiplier="0.427027" constant="132.92973599999999" id="hgj-lR-y2E"/>

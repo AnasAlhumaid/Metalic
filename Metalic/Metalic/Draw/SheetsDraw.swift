@@ -52,17 +52,17 @@ class SheetsDraw: UIViewController {
     
     func ShowAlert(){
         
-        let alert = UIAlertController(title: "Choose", message: "", preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "Choose".localized, message: "", preferredStyle: .actionSheet)
         // alert for creat new canves drawing
-        let drawing = UIAlertAction(title:"New Project", style: .default) { UIAlertAction in
+        let drawing = UIAlertAction(title:"New Project".localized, style: .default) { UIAlertAction in
             self.performSegue(withIdentifier: "NewDraw", sender: nil)
         }
         // alert for editing image
-        let addImage = UIAlertAction(title: "Edit", style: .default) { UIAlertActions in
+        let addImage = UIAlertAction(title: "Edit".localized, style: .default) { UIAlertActions in
             self.selectedImage = self.product[0].productImage
             self.performSegue(withIdentifier: "EditDraw", sender: nil)
         }
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+        let cancel = UIAlertAction(title: "Cancel".localized, style: .cancel)
         alert.addAction(drawing)
         alert.addAction(addImage)
         alert.addAction(cancel)
@@ -107,10 +107,10 @@ extension SheetsDraw : UICollectionViewDelegate,UICollectionViewDelegateFlowLayo
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         //creat alert when select item
-        let alert = UIAlertController(title: "Choose", message: "", preferredStyle: .actionSheet)
-        let cancel = UIAlertAction(title: "cancel", style: .cancel, handler: nil)
+        let alert = UIAlertController(title: "Choose".localized, message: "", preferredStyle: .actionSheet)
+        let cancel = UIAlertAction(title: "cancel".localized, style: .cancel, handler: nil)
         // delete item from colliction
-        let deletItem = UIAlertAction(title: "Delete", style: .destructive) { action in
+        let deletItem = UIAlertAction(title: "Delete".localized, style: .destructive) { action in
             if let selectedCells = collectionView.indexPathsForSelectedItems {
                 //choose item
                 let items = selectedCells.map { $0.item }.sorted().reversed()
@@ -125,7 +125,7 @@ extension SheetsDraw : UICollectionViewDelegate,UICollectionViewDelegateFlowLayo
             
         }
         // for adding item to firebase
-        let addToCart = UIAlertAction(title: "Add to Cart ", style: .default) { [self] UIAlertAction in
+        let addToCart = UIAlertAction(title: "Add to Cart".localized, style: .default) { [self] UIAlertAction in
             let random = String(Int(arc4random()))
             CartApi.AddCart(random: random, cart: "", uid: Auth.auth().currentUser?.uid ?? "", productImage: product[indexPath.row].productImage ?? "", productName: product[indexPath.row].productName ?? "", productSize: "pinding", productNumber: "\(random)", productMaterial: "pinding" , productColor: "pinding" , productWight: 0.0 , productThreadSize: 0.0, productLength: 0.0, productHeadStyle: "" , productHeadDimeter: 0.0 , productHeadHeight: 0.0 , productThreadPich: 0.0 , productThreadType: "", productDriverSize: 0.0 , productStrength: 0.0 , productThreadLength: 0.0 , productPrice: 0.0 )
             

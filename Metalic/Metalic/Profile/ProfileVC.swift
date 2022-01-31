@@ -32,9 +32,9 @@ class ProfileVC : UIViewController, UIImagePickerControllerDelegate {
             self.savedImage()
             
         }
-  
-        ProfileImage.layer.cornerRadius = ProfileImage.frame.size.width/2
         
+        ProfileImage.layer.cornerRadius = ProfileImage.frame.width / 2
+       
     }
     @IBAction func Addimage(_ sender: Any) {
         
@@ -121,6 +121,9 @@ extension ProfileVC : UINavigationControllerDelegate {
         }
         
     }
+
+
+
 
     
     

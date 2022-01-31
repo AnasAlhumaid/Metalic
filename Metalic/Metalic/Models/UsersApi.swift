@@ -11,6 +11,7 @@ import FirebaseFirestore
 
 
 
+
 class UserApi {
     
     static func addUsers(uid:String,userEmail:String, userFullName : String, completion: @escaping (Bool) -> Void ){

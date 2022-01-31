@@ -34,7 +34,7 @@ class ProductDetails : UIViewController{
         
         imageView.image =  UIImage(named:selectedimage ?? "")
         titelLabel.text = nameLabel
-        moreInfo.text = "You can choose from our Product and it ready for shipping"
+        moreInfo.text = "You can choose from our Product and it ready for shipping".localized
         
         view.addSubview(backButton)
     }
@@ -49,7 +49,7 @@ class ProductDetails : UIViewController{
     lazy var backButton: UIButton = {
            let button: UIButton = UIButton(frame: CGRect(x: 10, y: 50, width: 60, height: 30))
            button.addTarget(self, action: #selector(back(_:)), for: .touchUpInside)
-           button.setTitle("Back", for: .normal)
+        button.setTitle("Back".localized, for: .normal)
            return button
        }()
 

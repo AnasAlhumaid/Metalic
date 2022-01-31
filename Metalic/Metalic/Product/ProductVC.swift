@@ -10,11 +10,15 @@ import UIKit
 import Hero
 
 
+
+
+
 class ProductVC : UIViewController {
     
     @IBOutlet var productListTableView: UITableView!
     
-    let service = ["Machining Lathe","Machining Milling","Welding","hydraulic service","CNC"]
+    let service = ["Machining Lathe".localized,"Machining Milling".localized,"Welding".localized,"hydraulic service".localized,"CNC".localized]
+    let imageService = ["1","2","3","4","5"]
     var imageDetail = [Product]()
     var selectedImage : String?
     var selectedTitel : String?
@@ -51,7 +55,7 @@ extension ProductVC : UITableViewDelegate, UITableViewDataSource{
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? ProductListCellTableViewCell
         
-        cell?.imageCell.image = UIImage(named: service[indexPath.row])
+        cell?.imageCell.image = UIImage(named: imageService[indexPath.row])
         cell?.labelCell.text = service[indexPath.row]
         cell?.cellView.layer.shadowColor = UIColor.gray.cgColor
         cell?.cellView.layer.shadowOffset = CGSize(width: 1.0, height: 1.0)
@@ -72,7 +76,7 @@ extension ProductVC : UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        selectedImage = service[indexPath.row]
+        selectedImage = imageService[indexPath.row]
         selectedTitel = service[indexPath.row]
         
         let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "detail") as! ProductDetails

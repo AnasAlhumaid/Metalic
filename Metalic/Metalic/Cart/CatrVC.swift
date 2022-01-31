@@ -20,6 +20,7 @@ class CartVC : UIViewController {
     @IBOutlet var checkOutBottunOut: UIButton!
     @IBOutlet var cartTableView: UITableView!
     @IBOutlet var totalPrice: UILabel!
+    var stats = [BuyStat]()
     
     
     override func viewDidLoad() {
@@ -30,6 +31,9 @@ class CartVC : UIViewController {
         
         checkOutBottunOut.backgroundColor = UIColor(red: 0.186, green: 0.170, blue: 0.128, alpha: 1)
         checkOutBottunOut.layer.cornerRadius = 12
+        
+        stats = [BuyStat(purchaseAmount: 1.0), BuyStat(purchaseAmount: 20.0)]
+        cartTableView.reloadData()
     
     }
     
@@ -45,7 +49,7 @@ class CartVC : UIViewController {
     }
     
     func sumProduct(){
-        
+
         var counter: Double = 0.0
         for i in cart {
             counter += i.productPrice ?? 0.0
@@ -58,15 +62,14 @@ class CartVC : UIViewController {
 
 extension CartVC : CalculatePrice {
     func totalPrices(_ cell: CartTableCell) {
-        
+
         guard let num = Double(cell.SteperLabel.text ?? "-") else {return}
         guard let num2 = Double(cell.orderPrice.text ?? "-") else {return}
         print("cell.stepper.isContinuous :\(cell.stepper.isContinuous)")
         cell.orderPrice.text = "\(num * num2)"
-        
         totalPrice.text = "\(num * num2)"
         self.cartTableView.reloadData()
-        
+
     }
 }
 
@@ -96,12 +99,13 @@ extension CartVC : UITableViewDataSource,UITableViewDelegate{
             cell.cellView.layer.masksToBounds = false
             cell.cellView.layer.cornerRadius = 12.0
             cell.orderImage.layer.cornerRadius = 8.0
+            cell.buyStat = self.stats[indexPath.row]
             
         }
         
-        sumProduct()
+////        sumProduct()
         cell.delegate = self
-        
+//
         return cell
     }
     
@@ -114,8 +118,7 @@ extension CartVC : UITableViewDataSource,UITableViewDelegate{
             cartTableView.deleteRows(at: [indexPath], with: .automatic)
             
             tableView.reloadData()
-            
-            
+      
         }
         
         

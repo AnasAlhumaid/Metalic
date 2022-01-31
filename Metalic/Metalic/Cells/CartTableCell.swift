@@ -25,6 +25,19 @@ class CartTableCell: UITableViewCell {
     
     weak var delegate: CalculatePrice?
     
+    
+    var buyStat : BuyStat! {
+        didSet {
+            stepper.value = buyStat.purchaseAmount
+            SteperLabel.text = String(buyStat.purchaseAmount)
+        }
+    }
+    
+    @IBAction func stepperAction(_ sender: UIStepper) {
+        buyStat.purchaseAmount = sender.value
+        self.SteperLabel.text = String(sender.value)
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -34,6 +47,7 @@ class CartTableCell: UITableViewCell {
          stepper.maximumValue = 100
         stepper.minimumValue = 1
         
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -41,12 +55,13 @@ class CartTableCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    @IBAction func StepperAction(_ sender: UIStepper) {
-        delegate?.totalPrices(self)
-        SteperLabel.text = Int(sender.value).description
-        
-
-    }
+//    @IBAction func StepperAction(_ sender: UIStepper) {
+//        delegate?.totalPrices(self)
+//        SteperLabel.text = Int(sender.value).description
+//
+//
+//    }
+ 
     
     
     

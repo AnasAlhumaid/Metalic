@@ -1,0 +1,34 @@
+/* 
+  Localizable.strings
+  Metalic
+
+  Created by Anas Hamad on 26/06/1443 AH.
+  
+*/
+"Machining Lathe" = "اعمال الخراطة";
+"Machining Milling" = "اعمال التفريز";
+"Welding" = "اعمال اللحام";
+"hydraulic service" = "خدمات الهايدروليك";
+"CNC" = "المخرطه الحديثه";
+"You can choose from our Product and it ready for shipping" = "اختر منتجاتنا الجاهزة للتسليم";
+"Back" = "رجوع";
+"Mill" = "تفريز";
+"Hydraulic" = "هيدروليك";
+"Lathe" = "مخرطة";
+"Add To my project" = "اضافه في ملفاتي";
+"Name of project" = "اسم المشروع";
+"add Name" = "اضف اسم";
+"project Name" = "اسم المشروع";
+"Image Selection" = "اختر صورة";
+"From where you want to pick this image?" = "اختر صورة من ؟";
+"Camera" = "الكاميرا";
+"Photo Album" = "البوم الصور";
+"Cancel" = "انهاء";
+"cancel" = "انهاء";
+"Choose" = "اختر";
+"Delete" = "حذف";
+"Add to Cart" = "اضف الى السله";
+"Edit" = "تحرير";
+"EditDraw" = "تعديل المشروع";
+"New Project" = "مشروع جديد";
+

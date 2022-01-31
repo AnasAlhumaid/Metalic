@@ -21,7 +21,7 @@ class ShowProductVC: UIViewController {
     var latheProduct : [ShowProduct] = []
     var millProduct : [ShowProduct] = []
     var hydaulicProduct : [ShowProduct] = []
-    var selectionArray = ["CNC","Lathe","Mill","Hydraulic"]
+    var selectionArray = ["CNC".localized,"Lathe".localized,"Mill".localized,"Hydraulic".localized]
     
     
     
@@ -29,9 +29,9 @@ class ShowProductVC: UIViewController {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        navigationController?.navigationBar.backItem?.title = "Back"
         
         view.addSubview(backButton)
+        
         
     }
     
@@ -42,7 +42,7 @@ class ShowProductVC: UIViewController {
     lazy var backButton: UIButton = {
            let button: UIButton = UIButton(frame: CGRect(x: 10, y: 50, width: 60, height: 30))
            button.addTarget(self, action: #selector(back(_:)), for: .touchUpInside)
-           button.setTitle("Back", for: .normal)
+        button.setTitle("Back".localized, for: .normal)
         button.backgroundColor = .systemBrown
         button.layer.cornerRadius = 12
            return button
@@ -104,16 +104,9 @@ class ShowProductVC: UIViewController {
             }
             self.tableView.reloadData()
             
-            
-            
-            
-            
-            
-            
         }
-        
-        
     }
+
 }
 
 
@@ -134,13 +127,13 @@ extension ShowProductVC : UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
         case 0 :
-            return "CNC"
+            return "CNC".localized
         case 1 :
-            return "Lathe"
+            return "Lathe".localized
         case 2 :
-            return "Mill"
+            return "Mill".localized
         case 3 :
-            return "Hydraulic"
+            return "Hydraulic".localized
         default:
             return ""
         }
@@ -172,7 +165,7 @@ extension ShowProductVC : UITableViewDelegate,UITableViewDataSource{
         
         
         switch sectionName {
-        case "CNC":
+        case "CNC".localized:
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ShowProductCell
             guard let cncarryOfCart = cncProduct[indexPath.row].image else {return UITableViewCell()}
             let cncUrl = URL(string: cncarryOfCart)
@@ -188,7 +181,7 @@ extension ShowProductVC : UITableViewDelegate,UITableViewDataSource{
             cell.cellView.layer.masksToBounds = false
             cell.cellView.layer.cornerRadius = 12.0
             return cell
-        case "Lathe":
+        case "Lathe".localized:
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ShowProductCell
             guard let lathearryOfCart = latheProduct[indexPath.row].image else {return UITableViewCell()}
             let latheUrl = URL(string: lathearryOfCart)
@@ -204,7 +197,7 @@ extension ShowProductVC : UITableViewDelegate,UITableViewDataSource{
             cell.cellView.layer.masksToBounds = false
             cell.cellView.layer.cornerRadius = 12.0
             return cell
-        case "Mill":
+        case "Mill".localized:
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ShowProductCell
             guard let millarryOfCart = millProduct[indexPath.row].image else {return UITableViewCell()}
             
@@ -222,7 +215,7 @@ extension ShowProductVC : UITableViewDelegate,UITableViewDataSource{
             cell.cellView.layer.masksToBounds = false
             cell.cellView.layer.cornerRadius = 12.0
             return cell
-        case "Hydraulic":
+        case "Hydraulic".localized:
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ShowProductCell
             guard let hydraulicarryOfCart = hydaulicProduct[indexPath.row].image else {return UITableViewCell()}
             let hydraulicUrl = URL(string: hydraulicarryOfCart)

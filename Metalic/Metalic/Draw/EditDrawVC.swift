@@ -139,8 +139,8 @@ class EditDrawVC: UIViewController, PKCanvasViewDelegate, PKToolPickerObserver {
     
     func desplayAlert(){
         var textFieldName = UITextField()
-        let alert = UIAlertController(title: "Name of project", message: "add Name", preferredStyle: .alert)
-        let ok = UIAlertAction(title: "Add To my project", style: .default){ action in
+        let alert = UIAlertController(title: "Name of project".localized, message: "add Name".localized, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "Add To my project".localized, style: .default){ action in
             
             let screenShot = self.view.takeScreenshot()
             self.saveImage(screenShot: screenShot, nameText: textFieldName.text ?? "")
@@ -148,7 +148,7 @@ class EditDrawVC: UIViewController, PKCanvasViewDelegate, PKToolPickerObserver {
         }
         
         alert.addTextField { field in
-            field.placeholder = "Name"
+            field.placeholder = "Name".localized
             textFieldName = field
         }
         alert.addAction(ok)

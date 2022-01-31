@@ -25,3 +25,9 @@ class Utils: NSObject {
     }
     
 }
+
+extension String {
+    var localized: String {
+        return NSLocalizedString(self, comment: "\(self)_comment")
+      }
+}

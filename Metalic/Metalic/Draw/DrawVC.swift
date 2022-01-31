@@ -66,11 +66,8 @@ class DrawVC : UIViewController, PKCanvasViewDelegate, PKToolPickerObserver {
                 activityView = UIActivityIndicatorView(style: .whiteLarge)
             }
             activityView?.color = .label
-            //activityView?.center = self.view.center
-    
             container.addSubview(activityView!)
-            //self.view.addSubview(container)
-            //activityView?.startAnimating()
+           
         }
     
     
@@ -139,8 +136,8 @@ class DrawVC : UIViewController, PKCanvasViewDelegate, PKToolPickerObserver {
     
     func desplayAlert(){
         var textFieldName = UITextField()
-        let alert = UIAlertController(title: "Name of project", message: "add Name", preferredStyle: .alert)
-        let ok = UIAlertAction(title: "Add To my project", style: .default){ action in
+        let alert = UIAlertController(title: "Name of project".localized, message: "add Name".localized, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "Add To my project".localized, style: .default){ action in
             
             let screenShot = self.view.takeScreenshot()
             self.saveImage(screenShot: screenShot, nameText: textFieldName.text ?? "")
@@ -148,7 +145,7 @@ class DrawVC : UIViewController, PKCanvasViewDelegate, PKToolPickerObserver {
         }
         
         alert.addTextField { field in
-            field.placeholder = "Name"
+            field.placeholder = "project Name".localized
             textFieldName = field
         }
         alert.addAction(ok)
@@ -198,14 +195,14 @@ extension DrawVC: UIImagePickerControllerDelegate, UINavigationControllerDelegat
     
     private func showAlert() {
         
-        let alert = UIAlertController(title: "Image Selection", message: "From where you want to pick this image?", preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: {(action: UIAlertAction) in
+        let alert = UIAlertController(title: "Image Selection".localized, message: "From where you want to pick this image?".localized, preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Camera".localized, style: .default, handler: {(action: UIAlertAction) in
             self.getImage(fromSourceType: .camera)
         }))
-        alert.addAction(UIAlertAction(title: "Photo Album", style: .default, handler: {(action: UIAlertAction) in
+        alert.addAction(UIAlertAction(title: "Photo Album".localized, style: .default, handler: {(action: UIAlertAction) in
             self.getImage(fromSourceType: .photoLibrary)
         }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: nil))
+        alert.addAction(UIAlertAction(title: "Cancel".localized, style: .destructive, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
     
